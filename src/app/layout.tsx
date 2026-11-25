@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { Fraunces, Outfit } from "next/font/google";
+import { IBM_Plex_Sans, Sora } from "next/font/google";
 import "./globals.css";
 
-const display = Fraunces({
+const display = Sora({
   subsets: ["latin"],
   variable: "--font-display",
 });
 
-const sans = Outfit({
+const sans = IBM_Plex_Sans({
   subsets: ["latin"],
+  weight: ["400", "500"],
   variable: "--font-sans",
 });
 

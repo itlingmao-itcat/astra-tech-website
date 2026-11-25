@@ -51,25 +51,25 @@ const questions = [
 export default function Home() {
   return (
     <>
-      <header className="sticky top-0 z-10 border-b border-[var(--line)] bg-[var(--paper)]/95 backdrop-blur">
+      <header className="sticky top-0 z-20 border-b border-[var(--line)] bg-[#07111c]/80 backdrop-blur">
         <div className="wrap flex h-16 items-center justify-between gap-6">
           <a href="#top" className="flex items-center gap-3">
-            <span className="grid h-8 w-8 place-items-center rounded-md bg-[var(--deep)] text-sm text-[#e7c27a]">
+            <span className="grid h-8 w-8 place-items-center rounded-md border border-[var(--cyan)]/50 bg-[#102433] text-sm text-[var(--cyan)]">
               A
             </span>
-            <span className="font-[family-name:var(--font-display)] text-lg">
+            <span className="font-[family-name:var(--font-display)] tracking-wide">
               ASTRA TECH
             </span>
           </a>
-          <nav className="hidden gap-6 text-sm text-[var(--muted)] sm:flex">
-            <a href="#work">Work</a>
-            <a href="#approach">Approach</a>
-            <a href="#company">Company</a>
-            <a href="#questions">Questions</a>
+          <nav className="hidden gap-7 text-sm text-[var(--muted)] sm:flex">
+            <a className="nav-link" href="#work">Work</a>
+            <a className="nav-link" href="#approach">Approach</a>
+            <a className="nav-link" href="#company">Company</a>
+            <a className="nav-link" href="#questions">Questions</a>
           </nav>
           <a
             href="#company"
-            className="rounded-full bg-[var(--deep)] px-4 py-2 text-sm text-[#f4efe4]"
+            className="rounded-full border border-[var(--cyan)]/40 bg-[var(--cyan)] px-4 py-2 text-sm font-medium text-[#041018]"
           >
             Company record
           </a>
@@ -77,42 +77,52 @@ export default function Home() {
       </header>
 
       <main id="top">
-        <section className="wrap grid gap-12 py-16 md:grid-cols-[1.4fr_0.8fr] md:py-24">
-          <div>
-            <p className="text-sm uppercase tracking-[0.18em] text-[var(--gold)]">
-              Colorado technology company
-            </p>
-            <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl leading-[1.05] text-[var(--deep)] sm:text-6xl">
-              Software, kept simple.
-            </h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-[var(--muted)]">
-              ASTRA TECH Ltd builds practical software for operating a
-              business. The company is a Colorado corporation, formed for any
-              lawful business and introduced here as a technology practice.
-            </p>
+        <section className="stage">
+          <div className="grid-fade" />
+          <div className="wrap relative grid items-center gap-12 py-20 md:grid-cols-[1.3fr_0.8fr] md:py-28">
+            <div className="rise">
+              <p className="text-sm uppercase tracking-[0.22em] text-[var(--cyan)]">
+                Colorado technology company
+              </p>
+              <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl leading-[1.05] sm:text-6xl">
+                Software, kept simple.
+              </h1>
+              <p className="mt-6 max-w-xl text-lg leading-8 text-[var(--muted)]">
+                ASTRA TECH Ltd builds practical software for operating a
+                business. The company is a Colorado corporation, formed for any
+                lawful business and introduced here as a technology practice.
+              </p>
+            </div>
+            <aside className="panel scan rise delay-2 p-6">
+              <div className="flex items-center gap-2 text-sm text-[var(--cyan)]">
+                <span className="pulse-dot" />
+                Live company record
+              </div>
+              <p className="mt-5 font-[family-name:var(--font-display)] text-3xl">
+                Adopted September 27, 2026
+              </p>
+              <p className="mt-4 leading-7 text-[var(--muted)]">
+                Signed by director Scott Stuart Sears. The board directs the
+                company’s affairs.
+              </p>
+            </aside>
           </div>
-          <aside className="border-t-4 border-[var(--deep)] bg-[var(--band)] p-6">
-            <p className="text-sm text-[var(--muted)]">From the bylaws</p>
-            <p className="mt-3 font-[family-name:var(--font-display)] text-3xl text-[var(--deep)]">
-              Adopted September 27, 2026
-            </p>
-            <p className="mt-4 leading-7 text-[var(--muted)]">
-              Signed by director Scott Stuart Sears. The board directs the
-              company’s affairs.
-            </p>
-          </aside>
         </section>
 
-        <section id="work" className="bg-[var(--deep)] text-[#f4efe4]">
+        <section id="work" className="border-t border-[var(--line)] bg-[var(--bg-2)]">
           <div className="wrap py-16">
-            <h2 className="font-[family-name:var(--font-display)] text-4xl">
+            <h2 className="rise font-[family-name:var(--font-display)] text-4xl">
               The work
             </h2>
-            <div className="mt-10 grid gap-8 md:grid-cols-3">
-              {work.map((item) => (
-                <article key={item.name} className="border-t border-white/20 pt-5">
-                  <h3 className="text-xl">{item.name}</h3>
-                  <p className="mt-3 leading-7 text-[#d5e0e8]">{item.text}</p>
+            <div className="mt-10 grid gap-5 md:grid-cols-3">
+              {work.map((item, index) => (
+                <article
+                  key={item.name}
+                  className={`panel rise p-6 delay-${index + 1}`}
+                >
+                  <p className="text-sm text-[var(--violet)]">0{index + 1}</p>
+                  <h3 className="mt-3 text-xl">{item.name}</h3>
+                  <p className="mt-3 leading-7 text-[var(--muted)]">{item.text}</p>
                 </article>
               ))}
             </div>
@@ -120,13 +130,13 @@ export default function Home() {
         </section>
 
         <section id="approach" className="wrap py-16">
-          <h2 className="font-[family-name:var(--font-display)] text-4xl text-[var(--deep)]">
+          <h2 className="font-[family-name:var(--font-display)] text-4xl">
             A short way of working
           </h2>
-          <ol className="mt-10 grid gap-6 md:grid-cols-4">
-            {steps.map(([n, title, text]) => (
-              <li key={n}>
-                <p className="font-[family-name:var(--font-display)] text-2xl text-[var(--gold)]">
+          <ol className="mt-10 grid gap-5 md:grid-cols-4">
+            {steps.map(([n, title, text], index) => (
+              <li key={n} className={`rise delay-${index + 1}`}>
+                <p className="font-[family-name:var(--font-display)] text-3xl text-[var(--cyan)]">
                   {n}
                 </p>
                 <h3 className="mt-2 text-lg">{title}</h3>
@@ -136,10 +146,10 @@ export default function Home() {
           </ol>
         </section>
 
-        <section id="company" className="border-y border-[var(--line)] bg-[var(--band)]">
+        <section id="company" className="border-y border-[var(--line)] bg-[var(--bg-2)]">
           <div className="wrap grid gap-10 py-16 md:grid-cols-[0.8fr_1.2fr]">
             <div>
-              <h2 className="font-[family-name:var(--font-display)] text-4xl text-[var(--deep)]">
+              <h2 className="font-[family-name:var(--font-display)] text-4xl">
                 Company record
               </h2>
               <p className="mt-4 leading-7 text-[var(--muted)]">
@@ -151,9 +161,9 @@ export default function Home() {
               {facts.map(([label, value]) => (
                 <div
                   key={label}
-                  className="grid gap-1 border-b border-[var(--line)] pb-4 sm:grid-cols-[12rem_1fr]"
+                  className="grid gap-1 border-b border-[var(--line)] pb-4 sm:grid-cols-[13rem_1fr]"
                 >
-                  <dt className="text-sm text-[var(--muted)]">{label}</dt>
+                  <dt className="text-sm tracking-wide text-[var(--cyan)]">{label}</dt>
                   <dd>{value}</dd>
                 </div>
               ))}
@@ -162,13 +172,13 @@ export default function Home() {
         </section>
 
         <section id="questions" className="wrap py-16">
-          <h2 className="font-[family-name:var(--font-display)] text-4xl text-[var(--deep)]">
+          <h2 className="font-[family-name:var(--font-display)] text-4xl">
             Questions
           </h2>
-          <div className="mt-8 grid gap-8">
+          <div className="mt-8 grid gap-4">
             {questions.map((item) => (
-              <article key={item.q} className="max-w-3xl">
-                <h3 className="text-xl">{item.q}</h3>
+              <article key={item.q} className="panel max-w-3xl p-5">
+                <h3 className="text-lg">{item.q}</h3>
                 <p className="mt-2 leading-7 text-[var(--muted)]">{item.a}</p>
               </article>
             ))}
