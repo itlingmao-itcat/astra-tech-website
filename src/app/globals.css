@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f4efe4;
+  --ink: #172433;
+  --muted: #5c6b78;
+  --line: #d9d0c0;
+  --band: #e7e0d1;
+  --deep: #14324a;
+  --gold: #a97832;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans), "Avenir Next", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wrap {
+  width: min(1080px, calc(100% - 2.5rem));
+  margin-inline: auto;
+}
